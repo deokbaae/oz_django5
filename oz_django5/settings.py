@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 import pymysql
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    "tabom.apps.TabomConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -82,7 +84,7 @@ DATABASES = {
         "USER": "root",
         "PASSWORD": "1234",
         "HOST": "localhost",
-        "PORT": "3306",
+        "PORT": os.environ.get("DB_PORT", 3307),
     }
 }
 
