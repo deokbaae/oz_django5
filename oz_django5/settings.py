@@ -84,7 +84,7 @@ DATABASES = {
         "USER": "root",
         "PASSWORD": "1234",
         "HOST": "localhost",
-        "PORT": os.environ.get("DB_PORT", 3307),
+        "PORT": os.environ.get("DB_PORT", 3306),
     }
 }
 
@@ -113,11 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
