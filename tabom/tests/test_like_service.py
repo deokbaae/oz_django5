@@ -1,6 +1,7 @@
+from django.db import IntegrityError
 from django.test import TestCase
 
-from tabom.models import Article, Like, User
+from tabom.models import Article, User
 from tabom.services.like_service import do_like
 
 
@@ -24,7 +25,6 @@ class TestLikeService(TestCase):
         article = Article.objects.create(title="test_title")
 
         # Expect
-        #
-        like1 = do_like(user.id, article.id)
-        with self.assertRaises(Exception):
-            like2 = do_like(user.id, article.id)
+        do_like(user.id, article.id)
+        with self.assertRaises(IntegrityError):
+            do_like(user.id, article.id)
